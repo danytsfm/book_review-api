@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+
+
+{% block content %}
+  {%include 'nav.html' %}
+
+<div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-2">
+      </div>
+      <div class="col-md-auto" style="background-color:#ffffff; height:auto; width:80%">
+        <form action="{{url_for('write_review', title=title)}}" method='post'>
+          <div class="form-group">
+            <h4>{{ title }}</h4>
+            <br>
+            <div>
+              <div class="">
+                <label>What do you think?</label>
+                <textarea class="form-control" name="textreview" rows="5"></textarea>
+              </div>
+            </div>
+            <br>
+            <label>My rating:</label>
+            <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+              <div class="btn-group mr-2" role="group" aria-label="First group">
+                <button type="submit" name="1" value="1" title="did not like it" class="btn btn-secondary">1</button>
+                <button type="submit" name="2" value="2" title="it was ok" class="btn btn-secondary">2</button>
+                <button type="submit" name="3" value="3" title="liked it" class="btn btn-secondary">3</button>
+                <button type="submit" name="4" value="4" title="really liked it" class="btn btn-secondary">4</button>
+                <button type="submit" name="5" value="5" title="it was amazing" class="btn btn-secondary">5</button>
+              </div>
+          </div>
+      </form>
+      <div class="col col-lg-2">
+      </div>
+      </div>
+  </div>
+
+  {% endblock %}

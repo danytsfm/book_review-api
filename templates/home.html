@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+  {{ super() }}
+{% endblock %}
+
+
+{% block content %}
+  {%include 'nav.html' %}
+    <div class="row">
+     <div class="col">
+     </div>
+     <div class="col" style="background-color:#ffffff; height:auto;">
+        <img src="static/images/book_note.png" alt="" width="600px">
+        <h4>Search result:</h4>
+               {% for  book in books %}
+                  <ul>
+                    <a href="{{url_for('book_info', title=book['title'])}}"
+                      method="get" >{{ book['title'] }}</a>
+                  </ul>
+               {% endfor %}
+     </div>
+     <div class="col">
+     </div>
+   </div>
+  {% endblock %}

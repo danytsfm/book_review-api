@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+  {{ super() }}
+{% endblock %}
+
+
+{% block content %}
+  {%include 'nav.html' %}
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-2">
+        <img src="static/images/book.jpg" alt="" width="200px" height="200px">
+      </div>
+      <div class="col-md-auto" style="background-color:#ffffff; height:auto;">
+        {% for i in info%}
+           <ul style="width:450px">
+             <h4>title: {{ i['title'] }}</h4>
+             <h6>by: {{ i['author'] }}</h6>
+             <h6>year: {{ i['year'] }}</h6>
+             <h6>isbn: {{ i['isbn'] }}</h6>
+             <h6>ratings: {{ i['count'] }}</h6>
+             <h6>ratings avg: {{ i['average'] }}
+               <br><br>
+             <a class="btn btn-outline-secondary" href="{{url_for('write_review', title=i['title'])}}">Write a review</a>
+          </ul>
+          {% endfor %}
+      </div>
+      <div class="col col-lg-2">
+      </div>
+      </div>
+
+
+      <div class="row justify-content-md-center">
+        <div class="col-md-auto" ; height:auto;">
+              <table class="table table-borderless">
+                <thead>
+                  <tr>
+                    <th scope="col">User</th>
+                    <th scope="col">Ratings</th>
+                    <th scope="col">Review</th>
+                    <th scope="col">Post Date</th>
+                  </tr>
+                </thead>
+                {%  for r in reviews %}
+                <tbody>
+                  <tr>
+                    <th scope="row">{{ r['user_name']}}</th>
+                    <td>{{ r['ratings'] }}</td>
+                    <td>{{ r['reviews'] }}</td>
+                    <td>{{ r['post_date'] }}</td>
+                  </tr>
+                </tbody>
+                </table>
+          {% endfor %}
+        </div>
+    </div>
+  </div>
+    {% endblock %}

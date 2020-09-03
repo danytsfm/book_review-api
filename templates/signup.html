@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+  {{ super() }}
+{% endblock %}
+
+{% block content %}
+  <img src="static/images/logo.png">
+  <div class="container">
+    <h2>Sign up for ReaDanView</h2>
+    <div class="row justify-content-md-center">
+      <div class="col-md-auto">
+        <form name="SignupForm" action="/signup", method="post">
+        <div class="form-group">
+          <label for="UserName">How would you like us to call you?</label>
+          <input type="text" class="form-control" id="UserName" name="username" aria-describedby="emailHelp" required>
+        </div>
+        <div class="form-group">
+          <label for="Email">Email address</label>
+          <input type="email" class="form-control" id="Email" name="email" aria-describedby="emailHelp" required>
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+         <label for="inputPassword6">Password</label>
+         <input type="password" id="password" name="password" class="form-control" aria-describedby="passwordHelpInline" required>
+         <small id="passwordHelpInline" class="text-muted">Must be 8-20 characters long.</small>
+        </div>
+        <button type="submit" class="btn btn-info">Sign Up</button>
+
+        <a href="{{url_for('index')}}">Sign in</a>
+     </form>
+    </div>
+   </div>
+ </div><br>
+  <div class="container" style="width:300px; font-size:11px; text-align: justify">
+  <div class="row justify-content-md-center">
+    <div class="col-md-auto">
+    <p>By clicking "Sign up" I agree to the <a href="{{ url_for('terms') }}" target="_blank">Term of Service</a>.
+       For more information about ReaDanView's privacy practices, see the <a href="{{url_for('terms')}}" target="_blank">ReaDanView Privacy Statement</a>.</p>
+   </div>
+ </div>
+</div>
+{% endblock %}
