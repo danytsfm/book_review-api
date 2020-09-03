@@ -13,7 +13,7 @@ from exception import IncorrectCredentials
 
 
 app = Flask(__name__)
-app.secret_key = '1144'
+app.secret_key = ''
 
 # Check for environment variable
 if not os.getenv("DATABASE_URL"):
